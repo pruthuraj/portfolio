@@ -2,6 +2,7 @@
   "name": "portforli",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://pruthuraj.github.io/portfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
