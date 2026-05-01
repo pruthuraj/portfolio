@@ -1,26 +1,63 @@
 /* ============ BLEEDING NAME ============ */
 .bleed-wrap {
   position: relative;
-  display: inline-block;
-  width: 100%;
-  max-width: 1200px;
+  display: block;
+  width: min(100%, 1120px);
+  aspect-ratio: 1500 / 760;
+  margin-left: -4px;
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: bleedNameIn 1.2s 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 .bleed-svg {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   pointer-events: none;
   z-index: 1;
-  opacity: 0;
-  animation: bleedIn 1.8s 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  overflow: visible;
 }
-@keyframes bleedIn {
-  to { opacity: 0.95; }
+.bleed-red-layer {
+  opacity: 0.96;
+  mix-blend-mode: normal;
 }
-.bleed-name {
-  position: relative;
-  z-index: 2;
+.bleed-cream-layer {
+  fill: var(--cream);
+}
+.bleed-sheet {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bleedSheetDrift 8s ease-in-out infinite;
+}
+.bleed-long-streaks {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bleedStreakFall 5.6s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+.bleed-mask-drop {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: bleedMaskPull 7s ease-in-out infinite;
+}
+@keyframes bleedSheetDrift {
+  0%, 100% { transform: translate3d(0, -10px, 0) scaleY(1); }
+  50% { transform: translate3d(18px, 18px, 0) scaleY(1.035); }
+}
+@keyframes bleedStreakFall {
+  0% { transform: translateY(-34px) scaleY(0.96); opacity: 0.54; }
+  42% { opacity: 0.78; }
+  100% { transform: translateY(38px) scaleY(1.05); opacity: 0.58; }
+}
+@keyframes bleedMaskPull {
+  0%, 100% { transform: translateY(-10px) scaleY(0.98); }
+  50% { transform: translateY(18px) scaleY(1.04); }
+}
+@keyframes bleedNameIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ============ HERO ============ */
@@ -34,10 +71,144 @@
   justify-content: center;
   padding-top: 120px;
 }
+.hero-portrait {
+  position: absolute;
+  right: clamp(190px, 16vw, 260px);
+  top: 50%;
+  z-index: 0;
+  width: clamp(340px, 32vw, 520px);
+  aspect-ratio: 3 / 4;
+  transform: translateY(-52%);
+  pointer-events: none;
+  opacity: 0;
+  animation: portraitIn 1.25s 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.hp-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(240, 232, 216, 0.12);
+  background: #151413;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.38);
+}
+.hp-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(30, 29, 27, 0.14), transparent 22%, transparent 78%, rgba(30, 29, 27, 0.2)),
+    linear-gradient(180deg, transparent 0 68%, rgba(30, 29, 27, 0.24));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.hp-img,
+.hp-drips,
+.hp-vignette,
+.hp-grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hp-img {
+  object-fit: cover;
+  filter: grayscale(0.22) contrast(1.18) brightness(1.02) sepia(0.04);
+  transform: scale(1.04);
+}
+.hp-drips {
+  z-index: 3;
+  mix-blend-mode: normal;
+  opacity: 0.96;
+}
+.hp-photo-bleed {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: profileBleedBreath 7.5s ease-in-out infinite;
+}
+.hp-head-tear {
+  mix-blend-mode: multiply;
+}
+.hp-bleed-streams {
+  mix-blend-mode: multiply;
+}
+.hp-stream {
+  transform-box: fill-box;
+  transform-origin: center top;
+}
+.hp-stream-a {
+  animation: profileDripFallA 5.4s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+.hp-stream-b {
+  animation: profileDripFallB 6.4s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+.hp-stream-c {
+  animation: profileDripFallC 7.2s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+.hp-noise-sheet {
+  opacity: 0.28;
+  mix-blend-mode: screen;
+}
+.hp-splash,
+.hp-streak-layer {
+  animation: none;
+  transform-box: fill-box;
+  transform-origin: center top;
+}
+.hp-vignette {
+  z-index: 4;
+  background:
+    radial-gradient(circle at 50% 30%, transparent 0 42%, rgba(30, 29, 27, 0.02) 62%, rgba(30, 29, 27, 0.2) 100%),
+    linear-gradient(180deg, transparent 70%, rgba(30, 29, 27, 0.34) 100%);
+  pointer-events: none;
+}
+.hp-grain {
+  z-index: 5;
+  opacity: 0.28;
+  pointer-events: none;
+  background-image:
+    repeating-radial-gradient(circle at 18% 24%, rgba(240, 232, 216, 0.22) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 7px);
+  mix-blend-mode: overlay;
+}
+@keyframes portraitIn {
+  from {
+    opacity: 0;
+    transform: translateY(-48%) translateX(28px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(-52%) translateX(0);
+  }
+}
+@keyframes profileBleedBreath {
+  0%, 100% { transform: translateY(-7px) scaleY(0.985); opacity: 0.94; }
+  50% { transform: translateY(9px) scaleY(1.025); opacity: 1; }
+}
+@keyframes profileDripFallA {
+  0% { transform: translateY(-18px) scaleY(0.96); opacity: 0.72; }
+  46% { opacity: 0.98; }
+  100% { transform: translateY(52px) scaleY(1.08); opacity: 0.58; }
+}
+@keyframes profileDripFallB {
+  0% { transform: translateY(-52px) scaleY(0.92); opacity: 0.44; }
+  56% { opacity: 0.78; }
+  100% { transform: translateY(38px) scaleY(1.12); opacity: 0.4; }
+}
+@keyframes profileDripFallC {
+  0% { transform: translateY(-8px) scaleY(1); opacity: 0.46; }
+  50% { opacity: 0.72; }
+  100% { transform: translateY(76px) scaleY(1.15); opacity: 0.34; }
+}
 .hero .tag-row {
+  position: relative;
+  z-index: 2;
   margin-bottom: 64px;
 }
 .hero .name {
+  position: relative;
+  z-index: 2;
   font-family: var(--serif);
   font-weight: 900;
   font-size: clamp(64px, 10vw, 140px);
@@ -66,6 +237,7 @@
 }
 .hero .footer {
   position: absolute;
+  z-index: 3;
   left: var(--pad-l);
   right: var(--divider-right);
   bottom: 80px;
@@ -105,8 +277,59 @@
 }
 
 @media (max-width: 900px) {
+  .hero-portrait {
+    right: -38px;
+    top: 48%;
+    width: min(62vw, 320px);
+    opacity: 0.58;
+  }
+  .hp-stage {
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  }
   .hero .footer { position: static; flex-direction: column; align-items: flex-start; margin-top: 60px; }
   .hero .roles { display: none; }
+  .bleed-wrap {
+    width: min(100%, 760px);
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-portrait {
+    top: 42%;
+    right: -88px;
+    width: 76vw;
+  }
+  .hero .tag-row {
+    margin-bottom: 40px;
+  }
+  .bleed-wrap {
+    width: 112%;
+    margin-left: -2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bleed-sheet,
+  .bleed-long-streaks,
+  .bleed-mask-drop,
+  .bleed-wrap,
+  .hero-portrait,
+  .hp-splash,
+  .hp-streak-layer,
+  .hp-photo-bleed,
+  .hp-stream-a,
+  .hp-stream-b,
+  .hp-stream-c {
+    animation: none;
+  }
+  .bleed-wrap {
+    opacity: 1;
+    transform: none;
+  }
+  .hero-portrait {
+    opacity: 0.78;
+  }
 }
 
 /* ============ MARQUEE ============ */

@@ -1,6 +1,6 @@
 export const identity = {
   initials: 'PP',
-  fullName: { first: 'Pruthu', last: 'Parikh.' },
+  fullName: { first: 'Pruthu', last: 'Parikh' },
   tagline: 'Creating thoughtful digital experiences at the intersection of code and design.',
   email: 'pruthuparikh@gmail.com',
   socials: [
