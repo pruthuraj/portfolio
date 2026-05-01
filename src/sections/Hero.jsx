@@ -20,7 +20,7 @@ export default function Hero() {
 
       <div className="hero-copy">
         <div className="tag-row reveal">
-          <span className="tag">Portfolio - 2026</span>
+          <span className="tag">MSc - Frankfurt</span>
         </div>
 
         <h1 className="name">

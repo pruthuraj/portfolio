@@ -1,4 +1,11 @@
-const items = ['Available for select work', 'Brand · Web · Motion', 'Independent practice', 'Based everywhere']
+const items = [
+  'Open to Werkstudent roles',
+  'ML Engineering',
+  'Backend APIs',
+  'Data Pipelines',
+  'High-Integrity Systems',
+  'Frankfurt am Main',
+]
 
 export default function Marquee() {
   const track = (
@@ -6,7 +13,7 @@ export default function Marquee() {
       {[...items, ...items, ...items, ...items].map((t, i) => (
         <span key={i}>
           {t}
-          <span className="red"> ● </span>
+          <span className="red"> / </span>
         </span>
       ))}
     </div>
