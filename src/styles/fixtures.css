@@ -1,0 +1,188 @@
+/* ===== Logo ===== */
+.logo {
+  position: fixed;
+  top: 32px;
+  left: var(--pad-l);
+  z-index: 100;
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  color: var(--cream);
+}
+.logo .dot {
+  color: var(--red);
+}
+
+/* ===== Top Nav ===== */
+.topnav {
+  position: fixed;
+  top: 32px;
+  right: 40px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.topnav a {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream);
+  position: relative;
+  padding: 4px 0;
+  transition: opacity 0.3s ease;
+}
+.topnav a::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  width: 6px;
+  height: 1px;
+  background: var(--cream);
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+.topnav a:hover { opacity: 0.6; }
+.topnav a:hover::before { opacity: 1; width: 10px; }
+
+/* ===== Side Dot Nav ===== */
+.dotnav {
+  position: fixed;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.dotnav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0;
+  cursor: none;
+}
+.dotnav .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cream);
+  opacity: 0.3;
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.4s ease;
+}
+.dotnav a.active .dot {
+  opacity: 1;
+  background: var(--red);
+  transform: scale(1.4);
+}
+.dotnav .line {
+  width: 1px;
+  height: 32px;
+  background: var(--cream);
+  opacity: 0.2;
+}
+
+/* ===== Vertical Divider (PUNCH) ===== */
+.divider {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: var(--divider-right);
+  width: 1px;
+  background: var(--line-strong);
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* ===== Page Counter (Empiempi) ===== */
+.page-counter {
+  position: fixed;
+  bottom: 32px;
+  left: var(--pad-l);
+  z-index: 80;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--cream);
+}
+.page-counter .current {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+.page-counter .sep {
+  width: 24px;
+  height: 1px;
+  background: var(--cream-faint);
+  display: inline-block;
+  margin: 0 4px;
+  transform: translateY(-3px);
+}
+.page-counter .total {
+  opacity: 0.5;
+}
+
+/* ===== Scroll Progress ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 0;
+  background: var(--red);
+  z-index: 200;
+  pointer-events: none;
+  transition: height 0.05s linear;
+}
+
+/* ===== Custom Cursor ===== */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+}
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--cream);
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease, border-color 0.25s ease;
+}
+.cursor-ring.expanded {
+  width: 56px;
+  height: 56px;
+  opacity: 1;
+  border-color: var(--red);
+}
+
+@media (max-width: 900px) {
+  .dotnav, .divider, .page-counter, .scroll-progress, .cursor-dot, .cursor-ring { display: none; }
+  .topnav { right: 24px; top: 24px; }
+  .logo { left: 24px; top: 24px; }
+}
