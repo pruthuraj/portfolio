@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { identity } from '../data/content.js'
-import BleedingName from '../components/BleedingName.jsx'
+import HeroPortrait from '../components/HeroPortrait.jsx'
 
 export default function Hero() {
   const [roleIdx, setRoleIdx] = useState(0)
@@ -14,27 +14,30 @@ export default function Hero() {
 
   return (
     <div className="hero">
-      <span className="section-label">Index — Hero</span>
+      <span className="section-label">Index - Hero</span>
       <span className="vertical-counter">01 / 04</span>
+      <HeroPortrait />
 
-      <div className="tag-row reveal">
-        <span className="tag">Portfolio — 2026</span>
-      </div>
+      <div className="hero-copy">
+        <div className="tag-row reveal">
+          <span className="tag">MSc - Frankfurt</span>
+        </div>
 
-      <BleedingName
-        first={identity.fullName.first}
-        last={identity.fullName.last}
-      />
+        <h1 className="name">
+          <span className="line-1">{identity.fullName.first}</span>
+          <span className="line-2">{identity.fullName.last}</span>
+        </h1>
 
-      <div className="footer">
-        <p className="tagline reveal delay-3">{identity.tagline}</p>
-        <ul className="roles" aria-label="Disciplines">
-          {identity.roles.map((r, i) => (
-            <li key={r} className={i === roleIdx ? 'active-role' : ''}>
-              {r}
-            </li>
-          ))}
-        </ul>
+        <div className="footer">
+          <p className="tagline reveal delay-3">{identity.tagline}</p>
+          <ul className="roles" aria-label="Disciplines">
+            {identity.roles.map((r, i) => (
+              <li key={r} className={i === roleIdx ? 'active-role' : ''}>
+                {r}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   )

@@ -3,13 +3,13 @@ import { aboutCopy, stats, skills } from '../data/content.js'
 export default function About() {
   return (
     <div>
-      <span className="section-label">About — Studio</span>
+      <span className="section-label">About - Profile</span>
 
       <div className="about-grid">
         <div>
           <h2 className="lead reveal">
-            Quiet design,<br />
-            considered code.
+            ML pipelines,<br />
+            reliable systems.
           </h2>
           <div className="stats reveal delay-1">
             {stats.map((s) => (

@@ -1,15 +1,16 @@
 export const identity = {
   initials: 'PP',
-  fullName: { first: 'Pruthu', last: 'Parikh.' },
-  tagline: 'Creating thoughtful digital experiences at the intersection of code and design.',
-  email: 'pruthuparikh@gmail.com',
+  fullName: { first: 'Pruthuraj', last: 'Parikh' },
+  tagline:
+    'MSc High Integrity Systems student building ML pipelines, backend APIs, and data-driven software.',
+  email: 'pruthurajparikh@gmail.com',
+  location: 'Frankfurt am Main',
+  availability: 'Open to Werkstudent roles - up to 20 hrs/week',
   socials: [
-    { label: 'GitHub', href: '#' },
-    { label: 'LinkedIn', href: '#' },
-    { label: 'Instagram', href: '#' },
-    { label: 'Twitter', href: '#' },
+    { label: 'GitHub', href: 'https://github.com/pruthuraj' },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/pruthuraj-parikh' },
   ],
-  roles: ['Design', 'Direction', 'Motion'],
+  roles: ['ML Engineering', 'Backend Development', 'Data Engineering', 'High-Integrity Systems'],
 }
 
 export const sections = [
@@ -22,55 +23,63 @@ export const sections = [
 export const projects = [
   {
     n: '01',
-    year: '2025',
-    title: 'Aether',
-    tags: ['Brand', 'Web', 'Motion'],
+    year: '2024 - Present',
+    title: 'HexTTs',
+    role: 'ML Engineer',
+    tags: ['PyTorch', 'CUDA', 'VITS'],
+    href: 'https://github.com/pruthuraj',
     blurb:
-      'A digital identity for a contemporary fragrance house. Editorial typography meets atmospheric motion.',
+      'VITS text-to-speech model trained from scratch on 13,100 LJSpeech clips, with checkpoint resume, AMP, TensorBoard logging, mel caching, and Griffin-Lim inference.',
   },
   {
     n: '02',
-    year: '2024',
-    title: 'Northwind',
-    tags: ['Product', 'UX', 'Systems'],
+    year: '2025 - Present',
+    title: 'ECG Digital Twin',
+    role: 'High Integrity Systems',
+    tags: ['MATLAB', 'PTB-XL', 'V-Model'],
+    href: 'https://github.com/pruthuraj',
     blurb:
-      'A modular dashboard system for fleet operators. Dense data, calm interface, immediate feedback.',
+      'Safety-critical ECG monitoring and simulation system with mode-based operation, watchdog supervision, SQI gating, fault injection, GUIs, and requirements-to-test traceability.',
   },
   {
     n: '03',
-    year: '2024',
-    title: 'Foliage',
-    tags: ['Editorial', 'Web', '3D'],
+    year: '2023 - 2024',
+    title: 'Datascope',
+    role: 'Data Engineer',
+    tags: ['Flask', 'MongoDB', 'Pandas'],
+    href: 'https://github.com/pruthuraj',
     blurb:
-      'An online publication on botanical design. Long-form essays paired with 3D illustration.',
+      'Predictive price analytics platform with web scraping, data cleaning, REST APIs, MongoDB storage, CSV/XLSX exports, price-drop emails, and trend dashboards.',
   },
   {
     n: '04',
-    year: '2023',
-    title: 'Halcyon',
-    tags: ['Identity', 'Print', 'Direction'],
+    year: '2024 - Present',
+    title: 'WebReader',
+    role: 'System Architect',
+    tags: ['Firebase', 'SQLite3', 'JavaScript'],
+    href: 'https://github.com/pruthuraj',
     blurb:
-      'A studio rebrand from the ground up. Wordmark, system, and a slow editorial site.',
+      'Digital library and user behavior platform with offline-first SQLite storage, Firebase Auth, real-time book updates, TTS processing, and engagement analytics.',
   },
 ]
 
 export const stats = [
-  { value: '40+', label: 'Projects' },
-  { value: '08', label: 'Years' },
-  { value: '12', label: 'Awards' },
-  { value: '∞', label: 'Coffee' },
+  { value: '13.1k', label: 'Audio Clips' },
+  { value: '45M', label: 'TTS Params' },
+  { value: '04', label: 'Major Projects' },
+  { value: '9.11', label: 'BCA CGPA' },
 ]
 
 export const skills = [
-  { name: 'Brand & Identity', level: 95 },
-  { name: 'Web & Interaction', level: 90 },
-  { name: 'Art Direction', level: 85 },
-  { name: 'Motion Design', level: 75 },
-  { name: 'Type Design', level: 65 },
-  { name: '3D & Spatial', level: 55 },
+  { name: 'Python', level: 95 },
+  { name: 'ML & Data', level: 88 },
+  { name: 'Backend APIs', level: 86 },
+  { name: 'Databases', level: 82 },
+  { name: 'Data Engineering', level: 84 },
+  { name: 'Frontend & Tools', level: 76 },
 ]
 
 export const aboutCopy = [
-  'I’m an independent designer and developer focused on editorial digital products, brand systems, and considered motion. My practice sits between the studio and the screen.',
-  'Previously at studios across London and Berlin, now working with a small set of clients and collaborators who care about craft, restraint, and the long view.',
+  'I am an MSc student in High Integrity Systems at Frankfurt University of Applied Sciences, focused on ML engineering, backend systems, and data analytics.',
+  'My work spans model training, REST APIs, data pipelines, safety-critical simulation, and practical software systems built from scratch. I am seeking a Werkstudent role in ML Engineering, Data Science, or Backend Development.',
 ]

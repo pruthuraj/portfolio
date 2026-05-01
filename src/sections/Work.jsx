@@ -3,7 +3,7 @@ import { projects } from '../data/content.js'
 export default function Work() {
   return (
     <div>
-      <span className="section-label">Work — Selected</span>
+      <span className="section-label">Work - Selected</span>
 
       <div className="work-intro reveal">
         <h2>
@@ -21,6 +21,7 @@ export default function Work() {
               <div className="project-meta">
                 <span className="num">{p.n}</span>
                 <span>{p.year}</span>
+                <span>{p.role}</span>
               </div>
               <div className="project-body">
                 <h3>{p.title}</h3>
@@ -32,7 +33,16 @@ export default function Work() {
                 <p className="blurb">{p.blurb}</p>
               </div>
               <div className="project-cta">
-                <span className="circle" aria-hidden="true">↗</span>
+                <a
+                  className="circle"
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${p.title} on GitHub`}
+                  data-hover
+                >
+                  ↗
+                </a>
               </div>
             </div>
           </article>
