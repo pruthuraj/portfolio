@@ -20,6 +20,9 @@ export default function Contact() {
             {s.label}
           </a>
         ))}
+        <a href="/portfolio/current_cv.pdf" target="_blank" rel="noreferrer" data-hover>
+          CV
+        </a>
       </div>
     </div>
   )

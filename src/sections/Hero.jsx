@@ -30,6 +30,15 @@ export default function Hero() {
 
         <div className="footer">
           <p className="tagline reveal delay-3">{identity.tagline}</p>
+          <a
+            className="cv-dl reveal delay-3"
+            href="/portfolio/current_cv.pdf"
+            target="_blank"
+            rel="noreferrer"
+            data-hover
+          >
+            Download CV ↓
+          </a>
           <ul className="roles" aria-label="Disciplines">
             {identity.roles.map((r, i) => (
               <li key={r} className={i === roleIdx ? 'active-role' : ''}>

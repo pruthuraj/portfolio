@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(cd /d \"D:\\\\Pruthu\\\\cv projects\\\\portforli\")",
-      "Bash(dir /B)"
+      "Bash(dir /B)",
+      "Bash(npm.cmd run *)"
     ]
+  },
+  "enabledPlugins": {
+    "ruflo-core@ruflo": true,
+    "ruflo-swarm@ruflo": true
   }
 }
