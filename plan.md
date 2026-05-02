@@ -1,82 +1,211 @@
-# Portfolio Site — React Implementation Plan
+# CV Portfolio Implementation Plan
 
-## Context
+## Current Status
 
-`D:\Pruthu\cv projects\portforli` is an empty project containing only `CLAUDE.md`, which holds a detailed design spec for a dark, editorial portfolio site that fuses three references (PUNCH, Strekowski, Empiempi). The user asked to "make it in react." Goal: scaffold a React app and implement the full single-page portfolio per the spec.
+The portfolio is now a React/Vite single-page site with a dark editorial visual system, fixed navigation, section counters, a custom cursor, scroll progress, reveal animations, a marquee, and a photo bleed hero effect.
 
-A partial scaffold was already started before plan mode activated (package.json, vite.config.js, index.html, src/main.jsx, src/App.jsx, src/data/content.js, src/styles/global.css, src/components/NoiseOverlay.jsx). The plan continues from there.
+The placeholder designer/studio content has been replaced with CV-based content for Pruthuraj Parikh.
 
-## Stack
+## Completed Work
 
-- **Vite + React 18** (vanilla JS, no TS) — matches spec's "Vanilla HTML/CSS/JS or Next.js" recommendation; SPA is simpler and Next routing isn't needed for one-page scroll.
-- **Plain CSS** (one global stylesheet + co-located component CSS via `<style>` tags or CSS modules — using global file split by concern).
-- **Google Fonts**: Playfair Display, Bebas Neue, Inter (loaded via `<link>` in `index.html`, already done).
-- **No animation libraries** — native CSS + IntersectionObserver per spec.
+### Content
 
-## File structure
+- Updated identity to `Pruthuraj Parikh`.
+- Added Frankfurt am Main location.
+- Positioned the profile around:
+  - MSc High Integrity Systems
+  - ML engineering
+  - Backend development
+  - Data engineering
+  - High-integrity software
+- Added Werkstudent availability up to 20 hrs/week.
+- Added public contact email.
+- Added LinkedIn and GitHub links.
+- Omitted phone number from the public site.
 
-```
-portforli/
-├── index.html                      [done]
-├── package.json                    [done]
-├── vite.config.js                  [done]
-└── src/
-    ├── main.jsx                    [done]
-    ├── App.jsx                     [done — composition root with section refs + IntersectionObserver]
-    ├── data/content.js             [done — identity, projects, stats, skills, sections]
-    ├── styles/
-    │   ├── global.css              [done — tokens, base, .section, .tag, .headline, .reveal]
-    │   ├── fixtures.css            [todo — logo/nav/dot-nav/divider/counter/progress/cursor]
-    │   └── sections.css            [todo — hero/marquee/work/about/contact/footer]
-    ├── components/
-    │   ├── NoiseOverlay.jsx        [done]
-    │   ├── Logo.jsx                [todo — 2 initials + red period, top-left fixed]
-    │   ├── TopNav.jsx              [todo — Work / About / Contact stacked top-right]
-    │   ├── SideDotNav.jsx          [todo — 4 dots + connecting 1px lines, left-center; active prop]
-    │   ├── Divider.jsx             [todo — 1px vertical line at right: 200px]
-    │   ├── PageCounter.jsx         [todo — "01 / 04" bottom-left]
-    │   ├── ScrollProgress.jsx      [todo — 2px red bar far-right; rAF on scroll]
-    │   └── Cursor.jsx              [todo — red dot + cream ring; mousemove + hover-expand]
-    └── sections/
-        ├── Hero.jsx                [todo]
-        ├── Marquee.jsx             [todo]
-        ├── Work.jsx                [todo]
-        ├── About.jsx               [todo]
-        ├── Contact.jsx             [todo]
-        └── Footer.jsx              [todo]
-```
+### Hero
 
-## Section build notes
+- Updated the hero copy to reflect the technical CV profile.
+- Kept the existing editorial typography and dark visual style.
+- Kept the photo bleed effect on `public/me.jpg`.
+- Preserved the section sequence and fixed UI system.
 
-- **Hero**: tag pill, left-aligned name (line 1 upright, line 2 italic 0.85 opacity), bottom-left italic tagline, bottom-right role-cycler (3 roles, 2s `setInterval`, active = full opacity, others = 0.15). Stagger fades on mount via `.reveal delay-*` classes.
-- **Marquee**: ~60px strip, Bebas Neue, duplicated track, `@keyframes marqueeScroll` 20s linear infinite, red dot separators.
-- **Work**: 4 full-viewport project slides. Each: oversized Bebas ghost title (6% → 12% on hover) absolutely positioned behind, project meta `01 — 2025`, Playfair title, tags row, blurb, hover-reveal arrow + circle.
-- **About**: two-column grid (`1fr 1fr`). Left: outline italic heading + 2×2 stats. Right: 2 paragraphs + skills list with bar levels.
-- **Contact**: centered eyebrow + huge italic headline + email link + socials row.
-- **Footer**: three-column row (©, version, note) with top border.
+### Work Section
 
-## Interactions
+- Replaced placeholder projects with CV-based projects:
+  - HexTTs
+  - ECG Digital Twin
+  - Datascope
+  - WebReader
+- Added technical tags, roles, years, and CV-based descriptions.
+- Added `href` values to project objects.
+- Fixed the project arrow CTA by changing it from a non-clickable element to a real external link.
+- Current CTA fallback: all project arrows open `https://github.com/pruthuraj`.
 
-- IntersectionObserver in `App.jsx` (threshold 0.5) drives `activeIdx` for SideDotNav + PageCounter.
-- Second IntersectionObserver (threshold 0.1) toggles `.visible` on `.reveal` elements.
-- `Hero` runs role-cycle interval, cleared on unmount.
-- `ScrollProgress` listens to `scroll` via `requestAnimationFrame` and sets bar height as `% scrolled`.
-- `Cursor` tracks `mousemove`; ring scales up when hovering `a, button, [data-hover]`.
-- Custom cursor + side fixtures hidden under 900px via media queries.
+### About Section
 
-## Responsive
+- Replaced studio/designer copy with a technical profile summary.
+- Added CV-based stats:
+  - `13.1k` audio clips
+  - `45M` TTS model parameters
+  - `04` major projects
+  - `9.11` BCA CGPA
+- Replaced design skills with technical skills:
+  - Python
+  - ML and Data
+  - Backend APIs
+  - Databases
+  - Data Engineering
+  - Frontend and Tools
 
-Per spec, < 768px: hide SideDotNav, Divider, PageCounter, hero roles, rotated section labels; reduce hero clamp scaling naturally; About collapses to single column.
+### Contact Section
 
-## Verification
+- Updated the contact copy around Werkstudent availability.
+- Added email, LinkedIn, and GitHub links.
+- Kept the visual style minimal and editorial.
 
-1. `npm install` — installs react, react-dom, vite, @vitejs/plugin-react.
-2. `npm run dev` — starts Vite on default port; open in browser.
-3. Visual check: hero loads with staggered fade, scrolls reveal sections, marquee animates, dot nav highlights active section, page counter updates, scroll progress bar grows, custom cursor follows mouse, noise grain visible over everything.
-4. Resize to mobile width — fixtures hide, About stacks.
-5. `npm run build` — verifies production build succeeds.
+### Quality Checks
 
+- Ran `npm.cmd run build` successfully.
+- Verified in the browser DOM that:
+  - All four CV projects render.
+  - All four project CTA links exist.
+  - Contact email renders.
+  - CV-based marquee terms render.
+- Scanned source files for common mojibake characters and found no remaining matches in `src`.
 
-- Spline / Three.js 3D objects over project type
-- Solid/Liquid view toggle
-- Real grain PNG asset (using SVG `feTurbulence` instead — spec allows either)
+## Improvement Plan
+
+### 1. Replace Fallback Project Links
+
+Current state: every project CTA links to the GitHub profile.
+
+Next step:
+
+- Add exact repository links for each project when available.
+- Keep the GitHub profile fallback only for private or unavailable repositories.
+- Add optional live demo links where projects are deployed.
+
+### 2. Strengthen Project Case Studies
+
+Current state: project blurbs are short and CV-based.
+
+Next step:
+
+- Expand each project into a stronger recruiter-facing case study:
+  - Problem
+  - Your role
+  - Tech stack
+  - Key implementation details
+  - Result or measurable impact
+- Add one strong technical achievement per project.
+- Keep each project readable on desktop and mobile.
+
+### 3. Add Downloadable CV
+
+Current state: CV content is reflected on the site, but there is no public download button.
+
+Next step:
+
+- Add a public-safe CV PDF to `public/`.
+- Add a `Download CV` link in the hero or contact section.
+- Use `download` only if the desired behavior is direct download; otherwise open the PDF in a new tab.
+
+### 4. Add Education and Certifications
+
+Current state: education appears indirectly through the about copy.
+
+Next step:
+
+- Add a compact education block for:
+  - MSc High Integrity Systems, Frankfurt University of Applied Sciences
+  - BCA CGPA `9.11`
+- Add certifications only if they strengthen the target role.
+- Keep this section scan-friendly for recruiters.
+
+### 5. Improve Technical Skills Presentation
+
+Current state: skills are shown as weighted bars.
+
+Next step:
+
+- Replace abstract skill levels with concrete tools and technologies.
+- Example grouping:
+  - Languages: Python, JavaScript, SQL
+  - ML/Data: PyTorch, NumPy, Pandas, TensorBoard
+  - Backend: Flask, REST APIs
+  - Databases: MongoDB, SQLite, Firebase
+  - Tools: Git, Linux, CUDA basics
+- Consider keeping bars only if they add visual value.
+
+### 6. Add Project Visuals
+
+Current state: projects are typographic slides.
+
+Next step:
+
+- Add lightweight visuals that match each project:
+  - HexTTs: waveform, spectrogram, or training dashboard visual
+  - ECG Digital Twin: ECG signal trace or validation model diagram
+  - Datascope: data table, scraping pipeline, or analytics preview
+  - WebReader: library interface, reading view, or offline sync concept
+- Keep visuals subtle so the editorial style remains intact.
+
+### 7. Improve Mobile QA
+
+Current state: the layout has been adjusted for desktop and mobile, but longer technical copy should be checked after content changes.
+
+Next step:
+
+- Test widths around:
+  - 390px
+  - 686px
+  - 900px
+  - 1183px
+- Check for:
+  - Text overflow
+  - CTA tap size
+  - Hero/photo overlap
+  - About skills clipping
+  - Contact link wrapping
+
+### 8. Improve Accessibility
+
+Current state: project arrows are now accessible links.
+
+Next step:
+
+- Add visible keyboard focus states for links and CTAs.
+- Confirm `aria-label` text is useful for all icon-only links.
+- Verify reduced-motion mode keeps the photo effect visible but stops looping animation.
+- Check contrast for dimmed text and ghost text.
+
+### 9. Improve SEO and Social Sharing
+
+Current state: the site is functional but metadata can be stronger.
+
+Next step:
+
+- Update document title and meta description.
+- Add Open Graph and Twitter card metadata.
+- Add a preview image for LinkedIn sharing.
+- Consider structured data for a personal profile.
+
+### 10. Final Verification
+
+Before considering the portfolio complete:
+
+1. Run `npm.cmd run build`.
+2. Open `http://127.0.0.1:5173/portfolio/`.
+3. Check hero, work, about, contact, and footer.
+4. Click every project CTA.
+5. Click email, LinkedIn, GitHub, and CV links.
+6. Test desktop and mobile widths.
+7. Confirm no placeholder copy remains.
+
+## Open Questions
+
+- Should each project link to a public GitHub repository, a live demo, or a case-study page?
+- Should the CV PDF be downloadable from the hero, contact section, or both?
+- Do you want the portfolio to target ML engineering roles, backend roles, or Werkstudent roles equally?
+- Should the phone number stay private or be added to the public contact section?

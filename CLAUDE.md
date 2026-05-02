@@ -1,12 +1,13 @@
 ---
 title: Portfolio Website Design Specification
-status: draft
-project: portforli
+status: active
+project: portfolio
+owner: Pruthuraj Parikh
 ---
 
 # CLAUDE.md
 
-This file contains the working design brief for the portfolio project. It is intentionally structured for fast handoff and implementation.
+This is the working design brief and implementation reference for Pruthuraj Parikh's personal portfolio. It is structured for fast AI handoff.
 
 ## Table of Contents
 
@@ -118,18 +119,18 @@ Sequence: Hero -> Marquee -> Work -> About -> Contact -> Footer.
 - Each project includes meta, tags, description, and a hover reveal.
 - A rotated label on the far left reads Selected Work.
 
-Suggested project set:
+Current projects (in `src/data/content.js`):
 
-1. Studio Nova - Brand Identity, Art Direction, Print
-2. Orbital App - UX/UI Design, Webflow, Motion
-3. Verse Campaign - 3D Render, Motion Design, Campaign
-4. The Archive - Editorial, Typography, Digital
+1. HexTTs — ML Engineer, PyTorch/CUDA/VITS, `github.com/pruthuraj/HexTTs`
+2. ECG Digital Twin — High Integrity Systems, MATLAB/PTB-XL/V-Model, `github.com/pruthuraj/ECG_Digital_Twin`
+3. Datascope — Data Engineer, Flask/MongoDB/Pandas, `github.com/pruthuraj/DataScope`
+4. WebReader — System Architect, Firebase/SQLite3/JavaScript, `github.com/pruthuraj/NovelReaderApp`
 
 ### About
 
 - Two-column grid with balanced spacing.
-- Left side: about label, oversized name, and a stats grid.
-- Right side: two body paragraphs and a table-like skills list.
+- Left side: about label, oversized outline headline, and a 4-stat grid.
+- Right side: two body paragraphs, education block, and grouped skill tags (no bars).
 
 ### Contact
 
@@ -208,19 +209,20 @@ Example CSS:
 
 ## Assets and Checklist
 
-Prepare these before building:
+Current assets in `public/`:
 
-- Logo initials, 2 characters
-- Full name text
-- Hero tagline, 1 to 2 lines
-- Three role titles
-- Four project entries with title, year, tags, and description
-- Two about paragraphs
-- Stats for projects, years, and awards
-- Six skills with level labels
-- Contact email and social links
-- Optional 3D object images
-- Grain texture PNG or SVG filter
+- `me.jpg` — hero portrait photo
+- `current_cv.pdf` — downloadable CV (linked from hero and contact)
+
+Content data lives in `src/data/content.js`:
+
+- `identity` — name, tagline, email, location, availability, socials, roles
+- `sections` — section IDs and nav labels
+- `projects` — 4 entries with title, year, role, tags, href, blurb
+- `stats` — 4 stat cards for About left column
+- `skillGroups` — 5 grouped tool categories (replaces old skill bars)
+- `education` — 2 education entries for About right column
+- `aboutCopy` — 2 body paragraphs
 
 ## Responsive Notes
 
@@ -231,13 +233,20 @@ On screens narrower than `768px`:
 - Stack the about section into a single column.
 - Reduce section padding to `24px`.
 
-## Tech Recommendations
+## Tech Stack
 
-- Framework: Vanilla HTML/CSS/JS or Next.js if routing is needed.
-- Fonts: Google Fonts with Playfair Display, Bebas Neue, and Inter.
-- Animations: native CSS and `IntersectionObserver`.
-- Optional 3D: Spline or Three.js.
-- Grain: SVG turbulence or a tileable grayscale PNG.
+- Framework: React + Vite, deployed to GitHub Pages at `/portfolio/` base path.
+- Fonts: Google Fonts — Playfair Display, Bebas Neue, Inter.
+- Animations: native CSS keyframes and `IntersectionObserver` scroll reveals.
+- Grain: SVG `feTurbulence` noise overlay component (`NoiseOverlay.jsx`).
+- No routing — single-page app, scroll-based navigation.
+
+Key files:
+
+- `src/data/content.js` — all copy and data, edit here first
+- `src/styles/global.css` — CSS variables, resets, global utilities
+- `src/styles/sections.css` — per-section layout and component styles
+- `src/styles/fixtures.css` — fixed UI: logo, nav, dot nav, scroll bar, cursor
 
 ## Design Principles
 

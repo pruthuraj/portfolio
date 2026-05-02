@@ -1,4 +1,4 @@
-import { aboutCopy, stats, skills } from '../data/content.js'
+import { aboutCopy, stats, skillGroups, education } from '../data/content.js'
 
 export default function About() {
   return (
@@ -25,15 +25,30 @@ export default function About() {
           {aboutCopy.map((p, i) => (
             <p key={i} className="reveal delay-2">{p}</p>
           ))}
-          <ul className="skills reveal delay-3" aria-label="Skills">
-            {skills.map((s) => (
-              <li key={s.name}>
-                <span>{s.name}</span>
-                <span className="bar" style={{ '--lvl': `${s.level}%` }} />
-                <span className="num">{String(s.level).padStart(2, '0')}</span>
-              </li>
+
+          <div className="education reveal delay-3" aria-label="Education">
+            {education.map((e) => (
+              <div key={e.degree} className="edu-item">
+                <span className="edu-degree">{e.degree}</span>
+                <span className="edu-inst">
+                  {e.institution} · {e.period}{e.note ? ` · ${e.note}` : ''}
+                </span>
+              </div>
             ))}
-          </ul>
+          </div>
+
+          <div className="skill-groups reveal delay-3" aria-label="Skills">
+            {skillGroups.map((g) => (
+              <div key={g.category} className="skill-group">
+                <span className="skill-cat">{g.category}</span>
+                <div className="skill-tags">
+                  {g.tools.map((t) => (
+                    <span key={t} className="tag">{t}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

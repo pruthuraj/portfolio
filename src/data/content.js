@@ -23,43 +23,43 @@ export const sections = [
 export const projects = [
   {
     n: '01',
-    year: '2024 - Present',
+    year: '2024 – Present',
     title: 'HexTTs',
     role: 'ML Engineer',
     tags: ['PyTorch', 'CUDA', 'VITS'],
-    href: 'https://github.com/pruthuraj',
+    href: 'https://github.com/pruthuraj/HexTTs',
     blurb:
-      'VITS text-to-speech model trained from scratch on 13,100 LJSpeech clips, with checkpoint resume, AMP, TensorBoard logging, mel caching, and Griffin-Lim inference.',
+      'Built a full VITS text-to-speech pipeline from scratch on 13,100 LJSpeech clips. Implemented AMP training, checkpoint resume, mel spectrogram caching, and TensorBoard logging — reducing iteration time ~30% through mixed-precision and cache optimisations.',
   },
   {
     n: '02',
-    year: '2025 - Present',
+    year: '2025 – Present',
     title: 'ECG Digital Twin',
     role: 'High Integrity Systems',
     tags: ['MATLAB', 'PTB-XL', 'V-Model'],
-    href: 'https://github.com/pruthuraj',
+    href: 'https://github.com/pruthuraj/ECG_Digital_Twin',
     blurb:
-      'Safety-critical ECG monitoring and simulation system with mode-based operation, watchdog supervision, SQI gating, fault injection, GUIs, and requirements-to-test traceability.',
+      'Safety-critical ECG monitoring system following the V-Model lifecycle on the PTB-XL dataset. Delivered mode-based operation, watchdog supervision, SQI gating, fault injection testing, and full requirements-to-test traceability.',
   },
   {
     n: '03',
-    year: '2023 - 2024',
+    year: '2023 – 2024',
     title: 'Datascope',
     role: 'Data Engineer',
     tags: ['Flask', 'MongoDB', 'Pandas'],
-    href: 'https://github.com/pruthuraj',
+    href: 'https://github.com/pruthuraj/DataScope',
     blurb:
-      'Predictive price analytics platform with web scraping, data cleaning, REST APIs, MongoDB storage, CSV/XLSX exports, price-drop emails, and trend dashboards.',
+      'Full-stack price analytics platform with automated web scraping, Pandas-driven data cleaning, Flask REST API, and MongoDB storage. Added price-drop email alerts, trend dashboards, and CSV/XLSX exports for end-user reporting.',
   },
   {
     n: '04',
-    year: '2024 - Present',
+    year: '2024 – Present',
     title: 'WebReader',
     role: 'System Architect',
     tags: ['Firebase', 'SQLite3', 'JavaScript'],
-    href: 'https://github.com/pruthuraj',
+    href: 'https://github.com/pruthuraj/NovelReaderApp',
     blurb:
-      'Digital library and user behavior platform with offline-first SQLite storage, Firebase Auth, real-time book updates, TTS processing, and engagement analytics.',
+      'Offline-first digital library with SQLite local storage, Firebase Auth, and real-time book sync. Integrated TTS processing and engagement analytics tracking reading behaviour, with network-fallback mechanisms ensuring content access offline.',
   },
 ]
 
@@ -70,13 +70,26 @@ export const stats = [
   { value: '9.11', label: 'BCA CGPA' },
 ]
 
-export const skills = [
-  { name: 'Python', level: 95 },
-  { name: 'ML & Data', level: 88 },
-  { name: 'Backend APIs', level: 86 },
-  { name: 'Databases', level: 82 },
-  { name: 'Data Engineering', level: 84 },
-  { name: 'Frontend & Tools', level: 76 },
+export const skillGroups = [
+  { category: 'Languages', tools: ['Python', 'JavaScript', 'SQL', 'MATLAB'] },
+  { category: 'ML / Data', tools: ['PyTorch', 'NumPy', 'Pandas', 'TensorBoard', 'CUDA'] },
+  { category: 'Backend', tools: ['Flask', 'REST APIs', 'FastAPI'] },
+  { category: 'Databases', tools: ['MongoDB', 'SQLite', 'Firebase'] },
+  { category: 'Tools', tools: ['Git', 'Linux', 'Vite', 'GitHub Actions'] },
+]
+
+export const education = [
+  {
+    degree: 'MSc High Integrity Systems',
+    institution: 'Frankfurt University of Applied Sciences',
+    period: '2024 – Present',
+  },
+  {
+    degree: 'BCA',
+    institution: 'Parul University',
+    period: '2021 – 2024',
+    note: 'CGPA 9.11',
+  },
 ]
 
 export const aboutCopy = [
