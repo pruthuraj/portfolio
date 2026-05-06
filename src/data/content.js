@@ -23,7 +23,7 @@ export const sections = [
 export const projects = [
   {
     n: '01',
-    year: '2024 – Present',
+    year: '2026 – Present',
     title: 'HexTTs',
     role: 'ML Engineer',
     tags: ['PyTorch', 'CUDA', 'VITS'],
@@ -33,6 +33,16 @@ export const projects = [
   },
   {
     n: '02',
+    year: '2026 – Present',
+    title: 'Shared Memory MCP',
+    role: 'Backend Architect',
+    tags: ['Node.js', 'SQLite', 'WebSocket', 'MCP'],
+    href: 'https://github.com/pruthuraj/sharedMemory',
+    blurb:
+      'Multi-agent coordination service with persistent memory backend, semantic search, and bidirectional graph relations. Dual-protocol support (WebSocket + MCP stdio), TTL management, and AI-powered memory suggestions for distributed agent systems.',
+  },
+  {
+    n: '03',
     year: '2025 – Present',
     title: 'ECG Digital Twin',
     role: 'High Integrity Systems',
@@ -40,16 +50,6 @@ export const projects = [
     href: 'https://github.com/pruthuraj/ECG_Digital_Twin',
     blurb:
       'Safety-critical ECG monitoring system following the V-Model lifecycle on the PTB-XL dataset. Delivered mode-based operation, watchdog supervision, SQI gating, fault injection testing, and full requirements-to-test traceability.',
-  },
-  {
-    n: '03',
-    year: '2023 – 2024',
-    title: 'Datascope',
-    role: 'Data Engineer',
-    tags: ['Flask', 'MongoDB', 'Pandas'],
-    href: 'https://github.com/pruthuraj/DataScope',
-    blurb:
-      'Full-stack price analytics platform with automated web scraping, Pandas-driven data cleaning, Flask REST API, and MongoDB storage. Added price-drop email alerts, trend dashboards, and CSV/XLSX exports for end-user reporting.',
   },
   {
     n: '04',
@@ -60,6 +60,16 @@ export const projects = [
     href: 'https://github.com/pruthuraj/NovelReaderApp',
     blurb:
       'Offline-first digital library with SQLite local storage, Firebase Auth, and real-time book sync. Integrated TTS processing and engagement analytics tracking reading behaviour, with network-fallback mechanisms ensuring content access offline.',
+  },
+  {
+    n: '05',
+    year: '2023 – 2024',
+    title: 'Datascope',
+    role: 'Data Engineer',
+    tags: ['Flask', 'MongoDB', 'Pandas'],
+    href: 'https://github.com/pruthuraj/DataScope',
+    blurb:
+      'Full-stack price analytics platform with automated web scraping, Pandas-driven data cleaning, Flask REST API, and MongoDB storage. Added price-drop email alerts, trend dashboards, and CSV/XLSX exports for end-user reporting.',
   },
 ]
 
