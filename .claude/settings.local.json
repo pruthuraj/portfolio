@@ -3,7 +3,8 @@
     "allow": [
       "Bash(cd /d \"D:\\\\Pruthu\\\\cv projects\\\\portforli\")",
       "Bash(dir /B)",
-      "Bash(npm.cmd run *)"
+      "Bash(npm.cmd run *)",
+      "mcp__plugin_shared-memory_shared-memory__memory_search"
     ]
   },
   "enabledPlugins": {
