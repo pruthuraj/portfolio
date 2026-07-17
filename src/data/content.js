@@ -29,7 +29,7 @@ export const projects = [
     tags: ['YOLOv8n', 'TensorRT', 'OOD Monitor', 'SOTIF'],
     href: 'https://github.com/pruthuraj/Safety-Monitored-Edge-Perception-for-ADAS',
     blurb:
-      'Camera-only YOLOv8n detector (KITTI) accelerated with TensorRT FP16, supervised by a runtime out-of-distribution monitor driving a NOMINAL / DEGRADED / FAIL_SAFE state machine. Reached mAP50 0.856 at 17.2 ms full-loop p95 (vs 40 ms budget) and 0.982 night-OOD AUROC, backed by an STPA/HARA → SR-01..06 → GSN safety case aligned to SOTIF and ISO/PAS 8800.',
+      'A real-time object detector for self-driving cameras that also knows when to distrust itself. A YOLOv8n model spots pedestrians, vehicles, and cyclists at 17 ms per frame, while a safety monitor watches its confidence and flags unfamiliar scenes — switching the system between normal, degraded, and fail-safe modes. It detects difficult conditions like night driving with 98% accuracy, backed by a full automotive safety analysis and traceable requirements.',
   },
   {
     n: '02',
@@ -106,7 +106,7 @@ export const education = [
   },
   {
     degree: 'BCA',
-    institution: 'Parul University',
+    institution: 'CHARUSAT University',
     period: '2021 – 2024',
     note: 'CGPA 9.11',
   },
