@@ -121,10 +121,12 @@ Sequence: Hero -> Marquee -> Work -> About -> Contact -> Footer.
 
 Current projects (in `src/data/content.js`):
 
-1. HexTTs — ML Engineer, PyTorch/CUDA/VITS, `github.com/pruthuraj/HexTTs`
-2. ECG Digital Twin — High Integrity Systems, MATLAB/PTB-XL/V-Model, `github.com/pruthuraj/ECG_Digital_Twin`
-3. Datascope — Data Engineer, Flask/MongoDB/Pandas, `github.com/pruthuraj/DataScope`
-4. WebReader — System Architect, Firebase/SQLite3/JavaScript, `github.com/pruthuraj/NovelReaderApp`
+1. ADAS Safety Monitor — ML & Safety Engineer, YOLOv8n/TensorRT/OOD Monitor/SOTIF, `github.com/pruthuraj/Safety-Monitored-Edge-Perception-for-ADAS`
+2. HexTTs — ML Engineer, PyTorch/CUDA/VITS, `github.com/pruthuraj/HexTTs`
+3. Shared Memory MCP — Backend Architect, Node.js/SQLite/WebSocket/MCP, `github.com/pruthuraj/sharedMemory`
+4. ECG Digital Twin — High Integrity Systems, MATLAB/PTB-XL/V-Model, `github.com/pruthuraj/ECG_Digital_Twin`
+5. WebReader — System Architect, Firebase/SQLite3/JavaScript, `github.com/pruthuraj/NovelReaderApp`
+6. Datascope — Data Engineer, Flask/MongoDB/Pandas, `github.com/pruthuraj/DataScope`
 
 ### About
 
@@ -218,7 +220,7 @@ Content data lives in `src/data/content.js`:
 
 - `identity` — name, tagline, email, location, availability, socials, roles
 - `sections` — section IDs and nav labels
-- `projects` — 4 entries with title, year, role, tags, href, blurb
+- `projects` — 6 entries with title, year, role, tags, href, blurb
 - `stats` — 4 stat cards for About left column
 - `skillGroups` — 5 grouped tool categories (replaces old skill bars)
 - `education` — 2 education entries for About right column

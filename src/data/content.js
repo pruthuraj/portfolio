@@ -23,6 +23,16 @@ export const sections = [
 export const projects = [
   {
     n: '01',
+    year: '2026',
+    title: 'ADAS Safety Monitor',
+    role: 'ML & Safety Engineer',
+    tags: ['YOLOv8n', 'TensorRT', 'OOD Monitor', 'SOTIF'],
+    href: 'https://github.com/pruthuraj/Safety-Monitored-Edge-Perception-for-ADAS',
+    blurb:
+      'Camera-only YOLOv8n detector (KITTI) accelerated with TensorRT FP16, supervised by a runtime out-of-distribution monitor driving a NOMINAL / DEGRADED / FAIL_SAFE state machine. Reached mAP50 0.856 at 17.2 ms full-loop p95 (vs 40 ms budget) and 0.982 night-OOD AUROC, backed by an STPA/HARA → SR-01..06 → GSN safety case aligned to SOTIF and ISO/PAS 8800.',
+  },
+  {
+    n: '02',
     year: '2026 – Present',
     title: 'HexTTs',
     role: 'ML Engineer',
@@ -32,7 +42,7 @@ export const projects = [
       'Built a full VITS text-to-speech pipeline from scratch on 13,100 LJSpeech clips. Implemented AMP training, checkpoint resume, mel spectrogram caching, and TensorBoard logging — reducing iteration time ~30% through mixed-precision and cache optimisations.',
   },
   {
-    n: '02',
+    n: '03',
     year: '2026 – Present',
     title: 'Shared Memory MCP',
     role: 'Backend Architect',
@@ -42,8 +52,8 @@ export const projects = [
       'Multi-agent coordination service with persistent memory backend, semantic search, and bidirectional graph relations. Dual-protocol support (WebSocket + MCP stdio), TTL management, and AI-powered memory suggestions for distributed agent systems.',
   },
   {
-    n: '03',
-    year: '2025 – Present',
+    n: '04',
+    year: '2025 – 2026',
     title: 'ECG Digital Twin',
     role: 'High Integrity Systems',
     tags: ['MATLAB', 'PTB-XL', 'V-Model'],
@@ -52,7 +62,7 @@ export const projects = [
       'Safety-critical ECG monitoring system following the V-Model lifecycle on the PTB-XL dataset. Delivered mode-based operation, watchdog supervision, SQI gating, fault injection testing, and full requirements-to-test traceability.',
   },
   {
-    n: '04',
+    n: '05',
     year: '2024 – Present',
     title: 'WebReader',
     role: 'System Architect',
@@ -62,7 +72,7 @@ export const projects = [
       'Offline-first digital library with SQLite local storage, Firebase Auth, and real-time book sync. Integrated TTS processing and engagement analytics tracking reading behaviour, with network-fallback mechanisms ensuring content access offline.',
   },
   {
-    n: '05',
+    n: '06',
     year: '2023 – 2024',
     title: 'Datascope',
     role: 'Data Engineer',
@@ -76,13 +86,13 @@ export const projects = [
 export const stats = [
   { value: '13.1k', label: 'Audio Clips' },
   { value: '45M', label: 'TTS Params' },
-  { value: '04', label: 'Major Projects' },
+  { value: '06', label: 'Major Projects' },
   { value: '9.11', label: 'BCA CGPA' },
 ]
 
 export const skillGroups = [
   { category: 'Languages', tools: ['Python', 'JavaScript', 'SQL', 'MATLAB'] },
-  { category: 'ML / Data', tools: ['PyTorch', 'NumPy', 'Pandas', 'TensorBoard', 'CUDA'] },
+  { category: 'ML / Data', tools: ['PyTorch', 'NumPy', 'Pandas', 'TensorBoard', 'CUDA', 'TensorRT'] },
   { category: 'Backend', tools: ['Flask', 'REST APIs', 'FastAPI'] },
   { category: 'Databases', tools: ['MongoDB', 'SQLite', 'Firebase'] },
   { category: 'Tools', tools: ['Git', 'Linux', 'Vite', 'GitHub Actions'] },
